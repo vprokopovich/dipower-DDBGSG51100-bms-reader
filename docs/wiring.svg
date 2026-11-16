@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 700" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <rect width="920" height="700" fill="#ffffff"/>
+  <defs>
+    <style>
+      .box{fill:#f3f4f6;stroke:#374151;stroke-width:1.5}
+      .t{fill:#111827}.h{fill:#111827;font-size:15px;font-weight:600}
+      .m{fill:#6b7280;font-size:12px}
+      .w{fill:none;stroke-width:2.5}
+      .pin{fill:#111827}
+      .res{fill:#fff;stroke:#374151;stroke-width:1.5}
+    </style>
+  </defs>
+
+  <!-- ===================== Вариант A ===================== -->
+  <text x="30" y="30" class="h">Вариант A — ESP32 DevKit V1 + модуль MAX485</text>
+
+  <rect x="30" y="50" width="200" height="250" rx="8" class="box"/>
+  <text x="130" y="74" text-anchor="middle" class="h">ESP32 DevKit V1</text>
+  <text x="130" y="290" text-anchor="middle" class="m">питание: USB 5 В</text>
+  <g class="t" text-anchor="end">
+    <text x="220" y="109">VIN (5V)</text>
+    <text x="220" y="149">GND</text>
+    <text x="220" y="189">GPIO17 (TX2)</text>
+    <text x="220" y="229">GPIO4</text>
+    <text x="220" y="269">GPIO16 (RX2)</text>
+  </g>
+
+  <rect x="450" y="50" width="170" height="250" rx="8" class="box"/>
+  <text x="535" y="74" text-anchor="middle" class="h">MAX485</text>
+  <g class="t">
+    <text x="460" y="109">VCC</text>
+    <text x="460" y="149">GND</text>
+    <text x="460" y="189">DI</text>
+    <text x="460" y="229">DE + RE</text>
+    <text x="460" y="269">RO</text>
+  </g>
+  <g class="t" text-anchor="end">
+    <text x="610" y="139">A</text>
+    <text x="610" y="199">B</text>
+  </g>
+
+  <!-- провода ESP32 -> MAX485 -->
+  <path d="M230 105 H450" class="w" stroke="#dc2626"/>
+  <path d="M230 145 H450" class="w" stroke="#111827"/>
+  <path d="M230 185 H450" class="w" stroke="#2563eb"/>
+  <path d="M230 225 H450" class="w" stroke="#7c3aed"/>
+  <path d="M230 265 H330" class="w" stroke="#059669"/>
+  <path d="M390 265 H450" class="w" stroke="#059669"/>
+  <!-- делитель 5 В -> 3.3 В -->
+  <rect x="330" y="256" width="60" height="18" class="res"/>
+  <text x="360" y="250" text-anchor="middle" class="m">R1 1 кОм</text>
+  <circle cx="290" cy="265" r="4" fill="#059669"/>
+  <path d="M290 265 V285" class="w" stroke="#059669"/>
+  <rect x="281" y="285" width="18" height="46" class="res"/>
+  <text x="306" y="313" class="m">R2 2 кОм</text>
+  <path d="M290 331 V346 M276 346 H304 M281 352 H299 M286 358 H294" class="w" stroke="#111827"/>
+  <text x="312" y="352" class="m">GND</text>
+  <text x="400" y="330" class="m">Делитель R1/R2 обязателен: RO выдаёт 5 В,</text>
+  <text x="400" y="347" class="m">а вход ESP32 рассчитан на 3.3 В.</text>
+
+  <!-- RJ45 -->
+  <rect x="730" y="50" width="165" height="250" rx="8" class="box"/>
+  <text x="812" y="74" text-anchor="middle" class="h">RJ45 → батарея</text>
+  <text x="812" y="92" text-anchor="middle" class="m">порт RS485 BMS</text>
+  <g class="t">
+    <text x="740" y="132">пин 2 — 485-A</text>
+    <text x="740" y="149" class="m">оранжевый</text>
+    <text x="740" y="192">пин 1 — 485-B</text>
+    <text x="740" y="209" class="m">бело-оранжевый</text>
+    <text x="740" y="262" class="m">остальные жилы</text>
+    <text x="740" y="278" class="m">не подключать</text>
+  </g>
+  <path d="M620 135 H730" class="w" stroke="#ea580c"/>
+  <path d="M620 195 H730" class="w" stroke="#ea580c" stroke-dasharray="7 4"/>
+
+  <!-- ===================== Вариант B ===================== -->
+  <line x1="30" y1="390" x2="895" y2="390" stroke="#d1d5db"/>
+  <text x="30" y="425" class="h">Вариант B — готовая плата LilyGO T-CAN485 (без пайки)</text>
+
+  <rect x="30" y="445" width="330" height="200" rx="8" class="box"/>
+  <text x="195" y="470" text-anchor="middle" class="h">LilyGO T-CAN485</text>
+  <text x="195" y="490" text-anchor="middle" class="m">ESP32 + RS485 (MAX13487) + CAN на одной плате</text>
+  <text x="45" y="625" class="m">питание: USB-C 5 В или клеммы VIN 5–12 В</text>
+  <g class="t" text-anchor="end">
+    <text x="350" y="534">клемма A</text>
+    <text x="350" y="594">клемма B</text>
+  </g>
+
+  <rect x="730" y="445" width="165" height="200" rx="8" class="box"/>
+  <text x="812" y="470" text-anchor="middle" class="h">RJ45 → батарея</text>
+  <text x="812" y="488" text-anchor="middle" class="m">порт RS485 BMS</text>
+  <g class="t">
+    <text x="740" y="527">пин 2 — 485-A</text>
+    <text x="740" y="544" class="m">оранжевый</text>
+    <text x="740" y="587">пин 1 — 485-B</text>
+    <text x="740" y="604" class="m">бело-оранжевый</text>
+  </g>
+  <path d="M360 530 H730" class="w" stroke="#ea580c"/>
+  <path d="M360 590 H730" class="w" stroke="#ea580c" stroke-dasharray="7 4"/>
+
+  <text x="30" y="680" class="m">Цвета жил — для патч-корда, обжатого по T568B (самый распространённый). Номера пинов RJ45 — по руководству Dipower DDBGSG51100.</text>
+</svg>
